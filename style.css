@@ -1,0 +1,44 @@
+/*
+Theme Name: twentytwentyone-child
+Template: twentytwentyone
+*/
+
+.container {
+  width: 1200px;
+  margin: 0 auto;
+}
+.row {
+  display: flex;
+}
+.card {
+  max-width: 320px;
+  margin: 0 20px;
+}
+.card__description {
+  margin-top: 20px;
+}
+.card__image {
+  height: 200px;
+  margin-top: 20px;
+  overflow: hidden;
+}
+.card__image img {
+  height: auto !important;
+  object-fit: cover;
+  filter: grayscale(100%);
+  transition: filter 1.5s ease-out;
+}
+.card__image img:hover {
+  filter: none;
+}
+.card__price {
+  margin-top: 20px;
+}
+.to-up {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  display: none;
+  z-index: 100;
+  cursor: pointer;
+}
