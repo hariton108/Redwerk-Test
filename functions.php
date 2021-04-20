@@ -91,7 +91,19 @@ function save_announcement_price( $post_id ) {
 
 add_shortcode( 'announcements_amount' , 'display_announcements_amount' );
 function display_announcements_amount() {
-  $total = wp_count_posts( 'announcement' )->publish;
+	$args = [
+    'post_type' => 'announcement',
+    'meta_query' => [
+      [
+        'key' => 'price_meta_key',
+        'value' => '100',
+        'compare' => '!=',
+      ]
+    ]
+  ];
+  $query = new WP_Query( $args );
+  $total = $query->post_count;
+	wp_reset_postdata();
   $url = home_url() . '/announcements';
   return '<a href="' . $url . '">Total ads: ' . $total . '</a>';
 };
